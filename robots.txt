@@ -1,0 +1,13 @@
+# robots.txt for rishiraje.in
+# This file tells search engines how to crawl your site
+
+User-agent: *
+Allow: /
+Disallow: /script.js
+Disallow: /styles.css
+
+# Sitemap location
+Sitemap: https://rishiraje.in/sitemap.xml
+
+# Crawl delay (optional - helps with server load)
+Crawl-delay: 1
