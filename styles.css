@@ -2,14 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: #1e3a5f;
     overflow-x: hidden;
     background: linear-gradient(180deg, #f0f4f8 0%, #e8f1f8 100%);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Navigation */
@@ -28,8 +31,9 @@ nav {
 
 .logo {
     font-size: 1.5em;
-    font-weight: 700;
+    font-weight: 800;
     color: #1e3a5f;
+    letter-spacing: 0.5px;
 }
 
 .nav-links {
@@ -105,9 +109,10 @@ nav {
 
 .hero-content h1 {
     font-size: 3.5em;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 20px;
     line-height: 1.2;
+    letter-spacing: -0.5px;
 }
 
 .hero-content p {
@@ -214,6 +219,7 @@ nav {
     font-size: 2.5em;
     margin-bottom: 5px;
     color: #1e3a5f;
+    font-weight: 800;
 }
 
 .stat-card p {
@@ -325,6 +331,8 @@ nav {
 .section-header h2 {
     font-size: 2.5em;
     color: #1e3a5f;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
 .explore-btn {
@@ -451,6 +459,8 @@ nav {
     font-size: 2.5em;
     margin-bottom: 20px;
     color: #1e3a5f;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
 .about-content h3 {
@@ -541,6 +551,8 @@ nav {
     font-size: 2.5em;
     margin-bottom: 40px;
     color: #1e3a5f;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
 .skills-list {
@@ -594,6 +606,8 @@ nav {
     font-size: 2.5em;
     margin-bottom: 40px;
     color: #1e3a5f;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
 .clients-grid {
@@ -646,6 +660,8 @@ nav {
 .contact h2 {
     font-size: 3em;
     margin-bottom: 40px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
 .contact-info {
@@ -777,25 +793,330 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     nav, .hero, .services, .featured-work, .about, .skills, .clients, .contact, footer {
-        padding: 40px 20px;
+        padding: 40px 40px;
     }
     
-    .hero, .about, .footer-content {
-        grid-template-columns: 1fr;
+    .hero {
+        margin: 20px 40px;
+    }
+}
+
+@media (max-width: 968px) {
+    nav {
+        padding: 20px 30px;
     }
     
-    .services, .work-grid, .clients-grid {
+    .nav-links {
+        gap: 20px;
+    }
+    
+    .hero {
         grid-template-columns: 1fr;
+        padding: 60px 30px;
+        margin: 20px 30px;
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8em;
     }
     
     .stats-cards {
         position: static;
-        margin-top: 20px;
+        margin-top: 40px;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .stat-card {
+        min-width: 150px;
+    }
+    
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 40px 30px;
+    }
+    
+    .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .work-item.large {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    
+    .about {
+        grid-template-columns: 1fr;
+        padding: 60px 30px;
+        text-align: center;
+    }
+    
+    .about-image {
+        margin: 0 auto 40px;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .about-ctas {
+        justify-content: center;
+    }
+    
+    .clients-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .logo {
+        font-size: 1.2em;
+    }
+    
+    .nav-links {
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+        display: none;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-cta {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    
+    .hero {
+        padding: 40px 20px;
+        margin: 15px 20px;
+        gap: 40px;
     }
     
     .hero-content h1 {
+        font-size: 2.2em;
+    }
+    
+    .hero-content h3 {
+        font-size: 0.9em;
+    }
+    
+    .hero-content p {
+        font-size: 1em;
+    }
+    
+    .profile-img {
+        width: 280px;
+        height: 280px;
+        font-size: 3em;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .social-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-cta {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .stats-cards {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .stat-card {
+        width: 100%;
+    }
+    
+    .services {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        gap: 20px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .section-header h2 {
+        font-size: 2em;
+    }
+    
+    .featured-work, .skills, .clients, .contact {
+        padding: 40px 20px;
+    }
+    
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .about {
+        padding: 40px 20px;
+    }
+    
+    .about-image {
+        width: 280px;
+        height: 280px;
+        font-size: 4em;
+    }
+    
+    .about-content h2 {
+        font-size: 2em;
+    }
+    
+    .about-content h3 {
+        font-size: 1.3em;
+    }
+    
+    .about-ctas {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .skills h2, .clients h2 {
+        font-size: 2em;
+    }
+    
+    .skill-item {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .skill-bar {
+        width: 100%;
+    }
+    
+    .clients-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .client-logo {
+        padding: 20px;
+        font-size: 0.9em;
+    }
+    
+    .contact h2 {
+        font-size: 2em;
+    }
+    
+    .contact-ctas {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+    }
+    
+    .contact-ctas .btn-primary,
+    .contact-ctas .btn-secondary {
+        width: 100%;
+    }
+    
+    footer {
+        padding: 40px 20px;
+    }
+    
+    .newsletter {
+        flex-direction: column;
+    }
+    
+    .newsletter input,
+    .newsletter button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+    
+    .profile-img {
+        width: 220px;
+        height: 220px;
         font-size: 2.5em;
+    }
+    
+    .about-image {
+        width: 220px;
+        height: 220px;
+        font-size: 3em;
+    }
+    
+    .stat-card h2 {
+        font-size: 2em;
+    }
+    
+    .service-card {
+        padding: 30px 20px;
+    }
+    
+    .service-icon {
+        font-size: 2.5em;
+    }
+    
+    .service-card h3 {
+        font-size: 1.1em;
+    }
+    
+    .work-image {
+        height: 200px;
+        font-size: 3em;
+    }
+    
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+    
+    .contact-details h3 {
+        font-size: 0.8em;
+    }
+    
+    .contact-details p {
+        font-size: 1em;
     }
 }
