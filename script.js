@@ -1,3 +1,125 @@
+// Mobile Menu Toggle
+const createMobileMenu = () => {
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelector('.nav-links');
+    
+    // Create hamburger menu button
+    const menuToggle = document.createElement('button');
+    menuToggle.className = 'menu-toggle';
+    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    menuToggle.setAttribute('aria-label', 'Toggle menu');
+    
+    // Insert after logo
+    const logo = document.querySelector('.logo');
+    logo.after(menuToggle);
+    
+    // Toggle menu on click
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = menuToggle.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+            icon.className = 'fas fa-times';
+        } else {
+            icon.className = 'fas fa-bars';
+        }
+    });
+    
+    // Close menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.querySelector('i').className = 'fas fa-bars';
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target)) {
+            navLinks.classList.remove('active');
+            menuToggle.querySelector('i').className = 'fas fa-bars';
+        }
+    });
+};
+
+// Add mobile menu styles
+const addMobileMenuStyles = () => {
+    const style = document.createElement('style');
+    style.textContent = `
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #1e3a5f;
+            cursor: pointer;
+            padding: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .menu-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+        }
+        
+        /* Touch-friendly sizing */
+        @media (hover: none) and (pointer: coarse) {
+            .social-btn, .nav-cta, .btn-primary, .btn-secondary, .explore-btn {
+                min-height: 48px;
+                padding: 14px 30px;
+            }
+            
+            .client-logo, .service-card, .work-item {
+                min-height: 48px;
+            }
+            
+            .dot {
+                width: 12px;
+                height: 12px;
+            }
+            
+            .dot.active {
+                width: 36px;
+            }
+        }
+        
+        /* Prevent zoom on input focus for iOS */
+        @media screen and (max-width: 768px) {
+            input, textarea, select {
+                font-size: 16px !important;
+            }
+        }
+        
+        /* Better touch targets */
+        @media (max-width: 768px) {
+            .social-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.2em;
+            }
+            
+            .work-arrow {
+                width: 48px;
+                height: 48px;
+            }
+            
+            .contact-icon {
+                width: 48px;
+                height: 48px;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+};
+
+// Initialize mobile menu
+createMobileMenu();
+addMobileMenuStyles();
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -57,7 +179,7 @@ if (newsletterForm) {
     });
 }
 
-// Add snowflake effect
+// Add snowflake effect (reduce for mobile performance)
 function createSnowflake() {
     const snowflake = document.createElement('div');
     snowflake.innerHTML = '❄';
@@ -89,8 +211,10 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Create snowflakes periodically
-setInterval(createSnowflake, 300);
+// Reduce snowflakes on mobile for better performance
+const isMobile = window.innerWidth <= 768;
+const snowflakeInterval = isMobile ? 600 : 300;
+setInterval(createSnowflake, snowflakeInterval);
 
 // Skill bars animation
 const skillBars = document.querySelectorAll('.skill-progress');
@@ -109,3 +233,21 @@ const skillObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 skillBars.forEach(bar => skillObserver.observe(bar));
+
+// Handle orientation change
+window.addEventListener('orientationchange', () => {
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 100);
+});
+
+// Optimize scroll performance on mobile
+let ticking = false;
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
