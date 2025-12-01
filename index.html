@@ -6,10 +6,25 @@
     <meta name="description" content="Rishi Raje - Sales & Marketing Manager at WAL Developments. Expert in luxury real estate sales, revenue growth, and integrated marketing campaigns delivering measurable business results.">
     <meta name="keywords" content="Rishi Raje, Sales Marketing Manager, WAL Developments, luxury real estate sales, business development, digital marketing, revenue growth, lead generation, brand management, sales strategy">
     <meta name="author" content="Rishi Raje">
-    <meta property="og:title" content="Rishi Raje - Sales & Marketing Manager | WAL Developments">
-    <meta property="og:description" content="Sales & Marketing Manager at WAL Developments specializing in luxury real estate, revenue growth, and high-performing marketing campaigns.">
+    <meta name="theme-color" content="#8b4513">
+    
+    <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rishiraje.in">
+    <meta property="og:title" content="Rishi Raje - Sales & Marketing Manager | WAL Developments">
+    <meta property="og:description" content="Sales & Marketing Manager at WAL Developments specializing in luxury real estate, revenue growth, and high-performing marketing campaigns.">
+    <meta property="og:image" content="https://rishiraje.in/images/business-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Rishi Raje - Sales & Marketing Manager Business Card">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://rishiraje.in">
+    <meta name="twitter:title" content="Rishi Raje - Sales & Marketing Manager | WAL Developments">
+    <meta name="twitter:description" content="Sales & Marketing Manager at WAL Developments specializing in luxury real estate, revenue growth, and high-performing marketing campaigns.">
+    <meta name="twitter:image" content="https://rishiraje.in/images/business-card.jpg">
+    
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://rishiraje.in">
@@ -50,6 +65,9 @@
     </script>
 </head>
 <body>
+    <!-- Toast Notification Container -->
+    <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
     <!-- Navigation -->
     <nav>
         <div class="logo">RISHI RAJE</div>
@@ -59,7 +77,7 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
         </ul>
-        <a href="https://www.linkedin.com/in/rishiraje" class="nav-cta" target="_blank">Contact Me</a>
+        <a href="https://www.linkedin.com/in/rishiraje" class="nav-cta" target="_blank" rel="noopener noreferrer">Contact Me</a>
     </nav>
 
     <!-- Hero Section -->
@@ -69,18 +87,18 @@
             <h1>Rishi Raje</h1>
             <p>Sales & Marketing Manager at WAL Developments. Strategic professional driving revenue growth through integrated sales and marketing strategies in luxury real estate. Specializing in B2B/B2C campaigns, team leadership, and data-driven decision making that delivers measurable business results.</p>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/rishiraje" target="_blank" class="social-btn">
-                    <i class="fab fa-linkedin"></i> LinkedIn
+                <a href="https://www.linkedin.com/in/rishiraje" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Connect on LinkedIn">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
                 </a>
-                <a href="mailto:rishi_raje07@yahoo.co.uk" class="social-btn">
-                    <i class="fas fa-envelope"></i> Email
+                <a href="mailto:rishi_raje07@yahoo.co.uk" class="social-btn" aria-label="Send Email">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Email
                 </a>
             </div>
             <a href="#portfolio" class="hero-cta">View Portfolio</a>
         </div>
         <div class="hero-image">
             <div class="profile-img">
-                <img src="images/profile.jpg" alt="Rishi Raje - Sales & Marketing Manager" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'">
+                <img src="images/profile.jpg" alt="Rishi Raje - Professional headshot" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\' aria-hidden=\'true\'></i>'">
             </div>
             <div class="stats-cards">
                 <div class="stat-card blue">
@@ -102,125 +120,129 @@
     <!-- Carousel -->
     <div class="carousel">
         <p><strong>Available for exclusive consultations</strong></p>
-        <div class="carousel-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+        <div class="carousel-dots" role="tablist" aria-label="Carousel indicators">
+            <span class="dot active" role="tab" aria-selected="true" aria-label="Slide 1"></span>
+            <span class="dot" role="tab" aria-selected="false" aria-label="Slide 2"></span>
+            <span class="dot" role="tab" aria-selected="false" aria-label="Slide 3"></span>
+            <span class="dot" role="tab" aria-selected="false" aria-label="Slide 4"></span>
         </div>
     </div>
 
     <!-- Services -->
     <section class="services" id="services">
         <div class="service-card blue">
-            <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="service-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
             <h3>Revenue Growth</h3>
             <p>Strategic planning and execution to drive sales growth, optimize conversion funnels, and maximize ROI across all channels.</p>
         </div>
         <div class="service-card ice">
-            <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+            <div class="service-icon"><i class="fas fa-bullhorn" aria-hidden="true"></i></div>
             <h3>Campaign Management</h3>
             <p>End-to-end marketing campaigns from concept to execution, leveraging multi-channel strategies for maximum impact.</p>
         </div>
         <div class="service-card silver">
-            <div class="service-icon"><i class="fas fa-users"></i></div>
+            <div class="service-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
             <h3>Lead Generation</h3>
             <p>Building robust sales pipelines through targeted prospecting, inbound marketing, and strategic outreach initiatives.</p>
         </div>
         <div class="service-card frost">
-            <div class="service-icon"><i class="fas fa-handshake"></i></div>
+            <div class="service-icon"><i class="fas fa-handshake" aria-hidden="true"></i></div>
             <h3>Client Acquisition</h3>
             <p>Developing relationships and closing high-value deals through consultative selling and personalized engagement strategies.</p>
         </div>
     </section>
 
     <!-- Featured Work -->
-<section class="featured-work" id="portfolio">
-    <div class="section-header">
-        <h2>Featured Work</h2>
-        <a href="#" class="explore-btn">Explore All</a>
-    </div>
-    <div class="work-grid">
-        <div class="work-item large">
-            <span class="work-tag">Campaign</span>
-            <div class="work-image">
-                <img src="images/campaign-launch.jpg" alt="Product Launch Campaign" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-rocket\'></i>'">
-            </div>
-            <div class="work-content">
-                <h3>Product Launch</h3>
-            </div>
-            <div class="work-arrow"><i class="fas fa-arrow-right"></i></div>
+    <section class="featured-work" id="portfolio">
+        <div class="section-header">
+            <h2>Featured Work</h2>
+            <a href="#contact" class="explore-btn">Get in Touch</a>
         </div>
-        <div class="work-item">
-            <span class="work-tag">Digital</span>
-            <div class="work-image">
-                <img src="images/digital-marketing.jpg" alt="Digital Marketing Campaign" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-mobile-alt\'></i>'">
+        <div class="work-grid">
+            <div class="work-item large">
+                <div class="work-image">
+                    <img src="images/campaign-launch.jpg" alt="Product Launch Campaign showcase" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-rocket\' aria-hidden=\'true\'></i>'">
+                </div>
+                <span class="work-tag">Campaign</span>
+                <div class="work-content">
+                    <h3>Product Launch</h3>
+                </div>
+                <div class="work-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
             </div>
-            <div class="work-content">
-                <h3>Digital Marketing</h3>
+            <div class="work-item">
+                <div class="work-image">
+                    <img src="images/digital-marketing.jpg" alt="Digital Marketing Campaign results" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-mobile-alt\' aria-hidden=\'true\'></i>'">
+                </div>
+                <span class="work-tag">Digital</span>
+                <div class="work-content">
+                    <h3>Digital Marketing</h3>
+                </div>
+                <div class="work-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
             </div>
-            <div class="work-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="work-item">
+                <div class="work-image">
+                    <img src="images/sales-growth.jpg" alt="Sales Growth Strategy visualization" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-chart-pie\' aria-hidden=\'true\'></i>'">
+                </div>
+                <span class="work-tag">Strategy</span>
+                <div class="work-content">
+                    <h3>Sales Growth</h3>
+                </div>
+                <div class="work-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="work-item">
+                <div class="work-image">
+                    <img src="images/brand-development.jpg" alt="Brand Development project" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-award\' aria-hidden=\'true\'></i>'">
+                </div>
+                <span class="work-tag">Brand</span>
+                <div class="work-content">
+                    <h3>Brand Development</h3>
+                </div>
+                <div class="work-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="work-item">
+                <div class="work-image">
+                    <img src="images/leasing.jpg" alt="Leasing Solutions program" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-key\' aria-hidden=\'true\'></i>'">
+                </div>
+                <span class="work-tag">Leasing</span>
+                <div class="work-content">
+                    <h3>Leasing Solutions</h3>
+                </div>
+                <div class="work-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="work-item">
+                <div class="work-image">
+                    <img src="images/corporate-tieups.jpg" alt="Corporate Partnership initiatives" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-handshake\' aria-hidden=\'true\'></i>'">
+                </div>
+                <span class="work-tag">Partnership</span>
+                <div class="work-content">
+                    <h3>Corporate Tie-ups</h3>
+                </div>
+                <div class="work-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+            </div>
         </div>
-        <div class="work-item">
-            <span class="work-tag">Strategy</span>
-            <div class="work-image">
-                <img src="images/sales-growth.jpg" alt="Sales Growth Strategy" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-chart-pie\'></i>'">
-            </div>
-            <div class="work-content">
-                <h3>Sales Growth</h3>
-            </div>
-            <div class="work-arrow"><i class="fas fa-arrow-right"></i></div>
-        </div>
-        <div class="work-item">
-            <span class="work-tag">Brand</span>
-            <div class="work-image">
-                <img src="images/brand-development.jpg" alt="Brand Development" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-award\'></i>'">
-            </div>
-            <div class="work-content">
-                <h3>Brand Development</h3>
-            </div>
-            <div class="work-arrow"><i class="fas fa-arrow-right"></i></div>
-        </div>
-        <div class="work-item">
-            <span class="work-tag">Leasing</span>
-            <div class="work-image">
-                <img src="images/leasing.jpg" alt="Leasing Solutions" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-key\'></i>'">
-            </div>
-            <div class="work-content">
-                <h3>Leasing Solutions</h3>
-            </div>
-            <div class="work-arrow"><i class="fas fa-arrow-right"></i></div>
-        </div>
-        <div class="work-item">
-            <span class="work-tag">Partnership</span>
-            <div class="work-image">
-                <img src="images/corporate-tieups.jpg" alt="Corporate Tie-ups" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-handshake\'></i>'">
-            </div>
-            <div class="work-content">
-                <h3>Corporate Tie-ups</h3>
-            </div>
-            <div class="work-arrow"><i class="fas fa-arrow-right"></i></div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="about-image">
-            <img src="images/about-profile.jpg" alt="Rishi Raje Profile" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'">
+            <img src="images/about-profile.jpg" alt="Rishi Raje in professional setting" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\' aria-hidden=\'true\'></i>'">
         </div>
         <div class="about-content">
             <h2>More about</h2>
             <h3>Rishi Raje</h3>
             <p>Dynamic Sales & Marketing Manager at WAL Developments with over 12 years of experience driving revenue growth and building high-performing teams. Specializing in luxury real estate sales and integrated strategies that combine creative marketing with strategic sales execution to deliver exceptional business results.</p>
-            <p>My approach at WAL Developments blends data-driven insights with innovative campaign development to accelerate growth, optimize conversion funnels, and build lasting client relationships. With a proven track record of generating $370M+ in revenue, I bring strategic thinking, leadership, and execution excellence to every initiative in the luxury real estate market.</p>
+            <p>My approach blends data-driven insights with innovative campaign development to accelerate growth, optimize conversion funnels, and build lasting client relationships in the competitive luxury real estate market.</p>
             <div class="social-icons">
-                <a href="https://www.linkedin.com/in/rishiraje" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:rishi_raje07@yahoo.co.uk" class="social-icon"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/rishiraje" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn Profile">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:rishi_raje07@yahoo.co.uk" class="social-icon" aria-label="Email Contact">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                </a>
             </div>
             <div class="about-ctas">
                 <a href="#contact" class="btn-primary">Contact Me</a>
-                <a href="https://www.linkedin.com/in/rishiraje" target="_blank" class="btn-secondary">View LinkedIn</a>
+                <a href="https://www.linkedin.com/in/rishiraje" target="_blank" rel="noopener noreferrer" class="btn-secondary">View LinkedIn</a>
             </div>
         </div>
     </section>
@@ -231,25 +253,25 @@
         <div class="skills-list">
             <div class="skill-item">
                 <h3>Sales Strategy & Execution</h3>
-                <div class="skill-bar">
+                <div class="skill-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
                     <div class="skill-progress" style="width: 95%"></div>
                 </div>
             </div>
             <div class="skill-item">
                 <h3>Digital Marketing Campaigns</h3>
-                <div class="skill-bar">
+                <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
                     <div class="skill-progress" style="width: 90%"></div>
                 </div>
             </div>
             <div class="skill-item">
                 <h3>Team Leadership & Development</h3>
-                <div class="skill-bar">
+                <div class="skill-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
                     <div class="skill-progress" style="width: 92%"></div>
                 </div>
             </div>
             <div class="skill-item">
                 <h3>Data Analytics & Reporting</h3>
-                <div class="skill-bar">
+                <div class="skill-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
                     <div class="skill-progress" style="width: 88%"></div>
                 </div>
             </div>
@@ -258,20 +280,20 @@
 
     <!-- Clients -->
     <section class="clients">
-        <h2>Clients I've worked with</h2>
+        <h2>Industry Experience</h2>
         <div class="clients-grid">
-            <div class="client-logo">WAL DEVELOPMENTS</div>
-            <div class="client-logo">SIKKA</div>
-            <div class="client-logo">SPEED INFRA</div>
-            <div class="client-logo"></div>
-            <div class="client-logo"></div>
-            <div class="client-logo"></div>
-            <div class="client-logo"></div>
-            <div class="client-logo"></div>
-            <div class="client-logo"></div>
-            <div class="client-logo"></div>
-            <div class="client-logo"></div>
-            <div class="client-logo"></div>
+            <div class="client-logo">Real Estate</div>
+            <div class="client-logo">Hospitality</div>
+            <div class="client-logo">Retail</div>
+            <div class="client-logo">Technology</div>
+            <div class="client-logo">Finance</div>
+            <div class="client-logo">Healthcare</div>
+            <div class="client-logo">Education</div>
+            <div class="client-logo">Manufacturing</div>
+            <div class="client-logo">Consulting</div>
+            <div class="client-logo">E-commerce</div>
+            <div class="client-logo">Media</div>
+            <div class="client-logo">Automotive</div>
         </div>
     </section>
 
@@ -280,21 +302,21 @@
         <h2>Let's Discuss Your Business Goals</h2>
         <div class="contact-info">
             <div class="contact-item">
-                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="contact-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
                 <div class="contact-details">
                     <h3>Address</h3>
                     <p>Gurgaon, India</p>
                 </div>
             </div>
             <div class="contact-item">
-                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
                 <div class="contact-details">
                     <h3>Email Address</h3>
                     <p>rishi_raje07@yahoo.co.uk</p>
                 </div>
             </div>
             <div class="contact-item">
-                <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                <div class="contact-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
                 <div class="contact-details">
                     <h3>Phone Number</h3>
                     <p>+91-7388909494</p>
@@ -303,7 +325,7 @@
         </div>
         <div class="contact-ctas">
             <a href="mailto:rishi_raje07@yahoo.co.uk" class="btn-primary">Get in Touch</a>
-            <a href="https://www.linkedin.com/in/rishiraje" target="_blank" class="btn-secondary">Connect on LinkedIn</a>
+            <a href="https://www.linkedin.com/in/rishiraje" target="_blank" rel="noopener noreferrer" class="btn-secondary">Connect on LinkedIn</a>
         </div>
     </section>
 
@@ -313,10 +335,10 @@
             <div class="footer-brand">
                 <h3>RISHI RAJE</h3>
                 <p>Sales & Marketing Manager at WAL Developments. Strategic professional dedicated to driving business growth through innovative sales and marketing strategies in luxury real estate.</p>
-                <div class="newsletter">
-                    <input type="email" placeholder="Enter your email">
-                    <button>Subscribe</button>
-                </div>
+                <form class="newsletter" id="newsletter-form" novalidate>
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required aria-label="Email address for newsletter">
+                    <button type="submit">Subscribe</button>
+                </form>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
@@ -330,7 +352,7 @@
             <div class="footer-links">
                 <h4>Connect</h4>
                 <ul>
-                    <li><a href="https://www.linkedin.com/in/rishiraje" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://www.linkedin.com/in/rishiraje" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                     <li><a href="mailto:rishi_raje07@yahoo.co.uk">Email</a></li>
                 </ul>
             </div>
