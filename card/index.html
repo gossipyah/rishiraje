@@ -3,10 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rishi Raje - Sales & Marketing Manager at WAL Developments. Digital business card with instant contact options.">
-    <meta property="og:title" content="Rishi Raje - Digital Business Card">
-    <meta property="og:description" content="Sales & Marketing Manager | WAL Developments | Connect with me instantly">
-    <meta property="og:type" content="profile">
     <title>Rishi Raje - Digital Business Card</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -17,7 +13,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
@@ -33,12 +29,14 @@
             position: absolute;
             border-radius: 50%;
             pointer-events: none;
+            animation: float 20s infinite ease-in-out;
         }
 
-        .card-container {
-            perspective: 1000px;
-            max-width: 420px;
-            width: 100%;
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(20px, -20px); }
+            50% { transform: translate(-20px, 20px); }
+            75% { transform: translate(20px, 10px); }
         }
 
         .business-card {
@@ -46,28 +44,30 @@
             border-radius: 24px;
             padding: 40px 30px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 420px;
+            width: 100%;
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease;
-            animation: fadeIn 0.6s ease;
+            animation: slideIn 0.6s ease;
         }
 
-        .business-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Decorative elements */
         .card-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
             opacity: 0.1;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 50%);
         }
 
         .card-pattern {
@@ -76,13 +76,7 @@
             right: -50%;
             width: 200%;
             height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 20px,
-                rgba(255,255,255,0.03) 20px,
-                rgba(255,255,255,0.03) 40px
-            );
+            background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.03) 20px, rgba(255,255,255,0.03) 40px);
             animation: rotate 60s linear infinite;
         }
 
@@ -96,7 +90,21 @@
             z-index: 1;
         }
 
-        /* Profile Section */
+        .loading {
+            text-align: center;
+            color: white;
+            padding: 40px;
+        }
+
+        .loading i {
+            font-size: 3em;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         .profile-section {
             text-align: center;
             margin-bottom: 30px;
@@ -162,7 +170,6 @@
             font-weight: 400;
         }
 
-        /* Stats Section */
         .stats {
             display: flex;
             justify-content: space-around;
@@ -191,7 +198,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Contact Info */
         .contact-info {
             margin: 25px 0;
         }
@@ -245,7 +251,6 @@
             color: white;
         }
 
-        /* Action Buttons */
         .action-buttons {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -266,11 +271,11 @@
             justify-content: center;
             gap: 8px;
             text-decoration: none;
+            color: white;
         }
 
         .action-btn.primary {
             background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-            color: white;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
         }
 
@@ -281,7 +286,6 @@
 
         .action-btn.secondary {
             background: rgba(255, 255, 255, 0.15);
-            color: white;
             backdrop-filter: blur(10px);
         }
 
@@ -289,7 +293,15 @@
             background: rgba(255, 255, 255, 0.25);
         }
 
-        /* Social Links */
+        .save-contact-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            grid-column: 1 / -1;
+        }
+
+        .save-contact-btn:hover {
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+        }
+
         .social-links {
             display: flex;
             justify-content: center;
@@ -319,7 +331,6 @@
             transform: translateY(-3px);
         }
 
-        /* Toast Notification */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -349,204 +360,79 @@
             font-size: 1.2em;
         }
 
-        /* QR Code Modal */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            padding: 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 24px;
-            padding: 40px;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-            position: relative;
-            animation: modalSlideIn 0.3s ease;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 35px;
-            height: 35px;
-            border: none;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
-            color: #666;
-            transition: all 0.3s ease;
-        }
-
-        .modal-close:hover {
-            background: rgba(0, 0, 0, 0.2);
-            transform: rotate(90deg);
-        }
-
-        .qr-code {
-            width: 250px;
-            height: 250px;
-            background: white;
-            margin: 20px auto;
-            border: 10px solid #1e3a8a;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5em;
-        }
-
-        .modal h3 {
-            color: #1e3a8a;
-            margin-bottom: 10px;
-            font-size: 1.5em;
-        }
-
-        .modal p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
         @media (max-width: 480px) {
             .business-card {
                 padding: 30px 20px;
             }
-
             .name {
                 font-size: 1.6em;
             }
-
             .stats {
                 flex-direction: column;
                 gap: 15px;
             }
-
             .action-buttons {
                 grid-template-columns: 1fr;
             }
-
-            .modal-content {
-                padding: 30px 20px;
-            }
-
-            .qr-code {
-                width: 200px;
-                height: 200px;
-                font-size: 4em;
-            }
-        }
-
-        /* Save Contact Button Special */
-        .save-contact-btn {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            grid-column: 1 / -1;
-        }
-
-        .save-contact-btn:hover {
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
         }
     </style>
 </head>
 <body>
-    <!-- Background Particles -->
     <div id="particles"></div>
 
-    <!-- Business Card -->
-    <div class="card-container">
-        <div class="business-card">
-            <div class="card-bg"></div>
-            <div class="card-pattern"></div>
-            
-            <div class="card-content">
-                <!-- Profile Section -->
+    <div class="business-card">
+        <div class="card-bg"></div>
+        <div class="card-pattern"></div>
+        
+        <div class="card-content">
+            <div class="loading" id="loading">
+                <i class="fas fa-spinner"></i>
+                <p style="margin-top: 15px;">Loading your card...</p>
+            </div>
+
+            <div id="cardContent" style="display: none;">
                 <div class="profile-section">
-                    <div class="profile-image">
+                    <div class="profile-image" id="profileImage">
                         <i class="fas fa-user"></i>
                     </div>
-                    <h1 class="name">Rishi Raje</h1>
-                    <p class="title">Sales & Marketing Manager</p>
-                    <p class="company">WAL Developments</p>
+                    <h1 class="name" id="name"></h1>
+                    <p class="title" id="jobTitle"></p>
+                    <p class="company" id="company"></p>
                 </div>
 
-                <!-- Stats -->
                 <div class="stats">
                     <div class="stat">
-                        <span class="stat-number">12+</span>
+                        <span class="stat-number" id="statExp"></span>
                         <span class="stat-label">Years Exp</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">250+</span>
+                        <span class="stat-number" id="statCampaigns"></span>
                         <span class="stat-label">Campaigns</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">$370M+</span>
+                        <span class="stat-number" id="statRevenue"></span>
                         <span class="stat-label">Revenue</span>
                     </div>
                 </div>
 
-                <!-- Contact Info -->
                 <div class="contact-info">
-                    <a href="tel:+917388909494" class="contact-item">
+                    <a href="#" class="contact-item" id="phoneLink">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-text">
                             <span class="contact-label">Phone</span>
-                            <span class="contact-value">+91 738-890-9494</span>
+                            <span class="contact-value" id="phoneText"></span>
                         </div>
                     </a>
 
-                    <a href="mailto:rishi_raje07@yahoo.co.uk" class="contact-item">
+                    <a href="#" class="contact-item" id="emailLink">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-text">
                             <span class="contact-label">Email</span>
-                            <span class="contact-value">rishi_raje07@yahoo.co.uk</span>
+                            <span class="contact-value" id="emailText"></span>
                         </div>
                     </a>
 
@@ -556,18 +442,17 @@
                         </div>
                         <div class="contact-text">
                             <span class="contact-label">Location</span>
-                            <span class="contact-value">Gurgaon, Haryana, India</span>
+                            <span class="contact-value" id="locationText"></span>
                         </div>
                     </a>
                 </div>
 
-                <!-- Action Buttons -->
                 <div class="action-buttons">
                     <button class="action-btn save-contact-btn" onclick="saveContact()">
                         <i class="fas fa-download"></i>
                         Save Contact
                     </button>
-                    <a href="https://www.linkedin.com/in/rishiraje" target="_blank" class="action-btn primary">
+                    <a href="#" class="action-btn primary" id="linkedinBtn">
                         <i class="fab fa-linkedin"></i>
                         LinkedIn
                     </a>
@@ -575,28 +460,23 @@
                         <i class="fas fa-share-alt"></i>
                         Share
                     </button>
-                    <button class="action-btn secondary" onclick="showQR()">
-                        <i class="fas fa-qrcode"></i>
-                        QR Code
-                    </button>
-                    <a href="https://rishiraje.in" class="action-btn secondary">
+                    <a href="#" class="action-btn secondary" id="websiteBtn">
                         <i class="fas fa-globe"></i>
                         Portfolio
                     </a>
                 </div>
 
-                <!-- Social Links -->
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/rishiraje" target="_blank" class="social-link" title="LinkedIn">
+                    <a href="#" class="social-link" id="socialLinkedin" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="mailto:rishi_raje07@yahoo.co.uk" class="social-link" title="Email">
+                    <a href="#" class="social-link" id="socialEmail" title="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="tel:+917388909494" class="social-link" title="Phone">
+                    <a href="#" class="social-link" id="socialPhone" title="Phone">
                         <i class="fas fa-phone"></i>
                     </a>
-                    <a href="https://wa.me/917388909494" target="_blank" class="social-link" title="WhatsApp">
+                    <a href="#" class="social-link" id="socialWhatsapp" title="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
@@ -604,34 +484,21 @@
         </div>
     </div>
 
-    <!-- Toast Notification -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
-        <span id="toast-message">Action completed!</span>
-    </div>
-
-    <!-- QR Code Modal -->
-    <div class="modal" id="qrModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeQR()">
-                <i class="fas fa-times"></i>
-            </button>
-            <h3>Scan to Connect</h3>
-            <p>Open camera and scan this QR code</p>
-            <div class="qr-code">
-                <i class="fas fa-qrcode"></i>
-            </div>
-            <p style="font-size: 0.9em; color: #999;">QR code links to: rishiraje.in</p>
-        </div>
+        <span id="toastMessage">Action completed!</span>
     </div>
 
     <script>
+        // Storage for extracted data
+        let cardData = {};
+
         // Create background particles
         function createParticles() {
             const container = document.getElementById('particles');
             const colors = ['rgba(255,255,255,0.1)', 'rgba(245,158,11,0.2)', 'rgba(239,68,68,0.2)'];
             
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 15; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.width = Math.random() * 100 + 50 + 'px';
@@ -639,68 +506,178 @@
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + '%';
                 particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-                particle.style.animation = `float ${Math.random() * 20 + 10}s infinite ease-in-out`;
                 container.appendChild(particle);
             }
         }
 
-        // Add float animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float {
-                0%, 100% { transform: translate(0, 0); }
-                25% { transform: translate(20px, -20px); }
-                50% { transform: translate(-20px, 20px); }
-                75% { transform: translate(20px, 10px); }
-            }
-        `;
-        document.head.appendChild(style);
-
         createParticles();
 
-        // Show toast notification
+        // Fetch and parse main index.html
+        async function fetchMainPageData() {
+            try {
+                const response = await fetch('../index.html');
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+
+                // Extract data from main page
+                cardData = {
+                    // Name from hero or title
+                    name: doc.querySelector('.hero h1')?.textContent?.trim() || 
+                          doc.querySelector('h1')?.textContent?.trim() || 
+                          'Rishi Raje',
+                    
+                    // Job title
+                    title: doc.querySelector('.hero h3')?.textContent?.replace('I am', '')?.trim() ||
+                           doc.querySelector('.hero-content p')?.textContent?.split('.')[0] ||
+                           'Sales & Marketing Manager',
+                    
+                    // Company
+                    company: 'WAL Developments',
+                    
+                    // Email (find email link or text)
+                    email: doc.querySelector('a[href^="mailto:"]')?.href?.replace('mailto:', '') || 
+                           doc.querySelector('a[href^="mailto:"]')?.textContent?.trim() ||
+                           'rishi_raje07@yahoo.co.uk',
+                    
+                    // Phone (find phone link or text)
+                    phone: doc.querySelector('a[href^="tel:"]')?.href?.replace('tel:', '') ||
+                           doc.querySelector('.contact-details p')?.textContent?.match(/\+[\d-]+/)?.[0] ||
+                           '+91-7388909494',
+                    
+                    // Location
+                    location: doc.querySelector('.contact-details h3:contains("Address")')?.nextElementSibling?.textContent ||
+                             'Gurgaon, India',
+                    
+                    // LinkedIn
+                    linkedin: doc.querySelector('a[href*="linkedin"]')?.href || 
+                             'https://www.linkedin.com/in/rishiraje',
+                    
+                    // Website
+                    website: window.location.origin,
+                    
+                    // Stats (extract from stat cards)
+                    stats: {
+                        experience: doc.querySelector('.stat-card h2')?.textContent?.trim() || '12+',
+                        campaigns: doc.querySelectorAll('.stat-card h2')?.[1]?.textContent?.trim() || '250+',
+                        revenue: doc.querySelectorAll('.stat-card h2')?.[2]?.textContent?.trim() || '$370M+'
+                    },
+
+                    // Profile image
+                    profileImage: doc.querySelector('.profile-img img')?.src || ''
+                };
+
+                // Generate WhatsApp link from phone
+                const phoneNumber = cardData.phone.replace(/[^0-9]/g, '');
+                cardData.whatsapp = `https://wa.me/${phoneNumber}`;
+
+                return cardData;
+            } catch (error) {
+                console.error('Error fetching main page:', error);
+                // Return fallback data
+                return {
+                    name: 'Rishi Raje',
+                    title: 'Sales & Marketing Manager',
+                    company: 'WAL Developments',
+                    email: 'rishi_raje07@yahoo.co.uk',
+                    phone: '+91-7388909494',
+                    location: 'Gurgaon, India',
+                    linkedin: 'https://www.linkedin.com/in/rishiraje',
+                    website: window.location.origin,
+                    whatsapp: 'https://wa.me/917388909494',
+                    stats: {
+                        experience: '12+',
+                        campaigns: '250+',
+                        revenue: '$370M+'
+                    },
+                    profileImage: ''
+                };
+            }
+        }
+
+        // Populate card with data
+        function populateCard(data) {
+            // Profile
+            document.getElementById('name').textContent = data.name;
+            document.getElementById('jobTitle').textContent = data.title;
+            document.getElementById('company').textContent = data.company;
+
+            // Stats
+            document.getElementById('statExp').textContent = data.stats.experience;
+            document.getElementById('statCampaigns').textContent = data.stats.campaigns;
+            document.getElementById('statRevenue').textContent = data.stats.revenue;
+
+            // Contact info
+            document.getElementById('phoneText').textContent = data.phone;
+            document.getElementById('emailText').textContent = data.email;
+            document.getElementById('locationText').textContent = data.location;
+
+            // Links
+            document.getElementById('phoneLink').href = `tel:${data.phone}`;
+            document.getElementById('emailLink').href = `mailto:${data.email}`;
+            document.getElementById('linkedinBtn').href = data.linkedin;
+            document.getElementById('websiteBtn').href = data.website;
+
+            // Social links
+            document.getElementById('socialLinkedin').href = data.linkedin;
+            document.getElementById('socialEmail').href = `mailto:${data.email}`;
+            document.getElementById('socialPhone').href = `tel:${data.phone}`;
+            document.getElementById('socialWhatsapp').href = data.whatsapp;
+
+            // Profile image
+            if (data.profileImage) {
+                document.getElementById('profileImage').innerHTML = `<img src="${data.profileImage}" alt="${data.name}">`;
+            }
+
+            // Show card, hide loading
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('cardContent').style.display = 'block';
+        }
+
+        // Initialize
+        async function init() {
+            const data = await fetchMainPageData();
+            populateCard(data);
+        }
+
+        // Show toast
         function showToast(message) {
             const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toast-message');
-            toastMessage.textContent = message;
+            document.getElementById('toastMessage').textContent = message;
             toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
+            setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
         // Save contact as vCard
         function saveContact() {
             const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:Rishi Raje
-TITLE:Sales & Marketing Manager
-ORG:WAL Developments
-TEL;TYPE=CELL:+917388909494
-EMAIL:rishi_raje07@yahoo.co.uk
-ADR;TYPE=WORK:;;Gurgaon;Haryana;;India
-URL:https://rishiraje.in
-URL:https://www.linkedin.com/in/rishiraje
-NOTE:12+ years experience | 250+ campaigns | $370M+ revenue generated
+FN:${cardData.name}
+TITLE:${cardData.title}
+ORG:${cardData.company}
+TEL;TYPE=CELL:${cardData.phone}
+EMAIL:${cardData.email}
+ADR;TYPE=WORK:;;${cardData.location}
+URL:${cardData.website}
+URL:${cardData.linkedin}
+NOTE:${cardData.stats.experience} experience | ${cardData.stats.campaigns} campaigns | ${cardData.stats.revenue} revenue
 END:VCARD`;
 
             const blob = new Blob([vCard], { type: 'text/vcard' });
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
-            link.download = 'RishiRaje_Contact.vcf';
+            link.download = `${cardData.name.replace(/\s+/g, '')}_Contact.vcf`;
             link.click();
             URL.revokeObjectURL(url);
-            
             showToast('Contact card downloaded!');
         }
 
         // Share card
         async function shareCard() {
             const shareData = {
-                title: 'Rishi Raje - Digital Business Card',
-                text: 'Sales & Marketing Manager at WAL Developments. Let\'s connect!',
+                title: `${cardData.name} - Digital Business Card`,
+                text: `${cardData.title} at ${cardData.company}. Let's connect!`,
                 url: window.location.href
             };
 
@@ -709,7 +686,6 @@ END:VCARD`;
                     await navigator.share(shareData);
                     showToast('Card shared successfully!');
                 } else {
-                    // Fallback: Copy link
                     await navigator.clipboard.writeText(window.location.href);
                     showToast('Link copied to clipboard!');
                 }
@@ -720,41 +696,16 @@ END:VCARD`;
             }
         }
 
-        // Show QR code
-        function showQR() {
-            document.getElementById('qrModal').classList.add('active');
-        }
-
-        // Close QR code
-        function closeQR() {
-            document.getElementById('qrModal').classList.remove('active');
-        }
-
         // Copy location
         function copyLocation(e) {
             e.preventDefault();
-            const location = 'Gurgaon, Haryana, India';
-            navigator.clipboard.writeText(location).then(() => {
+            navigator.clipboard.writeText(cardData.location).then(() => {
                 showToast('Location copied to clipboard!');
             });
         }
 
-        // Close modal on outside click
-        document.getElementById('qrModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeQR();
-            }
-        });
-
-        // Add keyboard support
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeQR();
-            }
-        });
-
-        // Track card views (you can integrate analytics here)
-        console.log('Digital card viewed at:', new Date().toISOString());
+        // Start loading data
+        init();
     </script>
 </body>
 </html>
