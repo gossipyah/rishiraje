@@ -181,7 +181,8 @@ if (newsletterForm) {
 
 // Snowflake effect with performance optimization
 let snowflakeCount = 0;
-const MAX_SNOWFLAKES = 20;
+// PERFORMANCE: Reduce snowflakes on mobile
+const MAX_SNOWFLAKES = window.matchMedia('(max-width: 768px)').matches ? 5 : 15;
 
 function createSnowflake() {
     if (snowflakeCount >= MAX_SNOWFLAKES) return;
