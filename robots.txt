@@ -1,13 +1,25 @@
 # robots.txt for rishiraje.in
-# This file tells search engines how to crawl your site
+# https://rishiraje.in/robots.txt
 
 User-agent: *
 Allow: /
-Disallow: /script.js
-Disallow: /styles.css
+
+# Disallow admin or private areas if they exist
+# Disallow: /admin/
+# Disallow: /private/
+
+# Disallow duplicate content from search results
+Disallow: /*?
+Disallow: /*?*
+
+# Allow CSS and JS for better crawling
+Allow: /styles.css
+Allow: /script.js
+Allow: /*.css
+Allow: /*.js
 
 # Sitemap location
 Sitemap: https://rishiraje.in/sitemap.xml
 
-# Crawl delay (optional - helps with server load)
-Crawl-delay: 1
+# Crawl-delay (optional, adjust if needed)
+# Crawl-delay: 10
