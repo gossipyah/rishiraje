@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rishi Raje - Digital Business Card</title>
+    
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://rishiraje.in/card.html">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -16,19 +19,15 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            min-height: -webkit-fill-available;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 15px;
+            padding: 20px;
             position: relative;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
-        html {
-            height: -webkit-fill-available;
-        }
-
+        /* Animated background particles */
         .particle {
             position: absolute;
             border-radius: 50%;
@@ -43,17 +42,12 @@
             75% { transform: translate(20px, 10px); }
         }
 
-        .card-container {
-            width: 100%;
-            max-width: 420px;
-            margin: 0 auto;
-        }
-
         .business-card {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            border-radius: 20px;
-            padding: 30px 20px;
+            border-radius: 24px;
+            padding: 40px 30px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 420px;
             width: 100%;
             position: relative;
             overflow: hidden;
@@ -102,11 +96,11 @@
         .loading {
             text-align: center;
             color: white;
-            padding: 30px 15px;
+            padding: 40px;
         }
 
         .loading i {
-            font-size: 2.5em;
+            font-size: 3em;
             animation: spin 1s linear infinite;
         }
 
@@ -116,19 +110,19 @@
 
         .profile-section {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .profile-image {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-            margin: 0 auto 15px;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5em;
+            font-size: 3em;
             color: white;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
             border: 4px solid rgba(255, 255, 255, 0.2);
@@ -159,32 +153,30 @@
         }
 
         .name {
-            font-size: 1.6em;
+            font-size: 2em;
             font-weight: 800;
             color: white;
             margin-bottom: 8px;
             letter-spacing: -0.5px;
-            word-break: break-word;
         }
 
         .title {
-            font-size: 1em;
+            font-size: 1.1em;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 5px;
             font-weight: 500;
         }
 
         .company {
-            font-size: 0.9em;
+            font-size: 0.95em;
             color: rgba(255, 255, 255, 0.7);
             font-weight: 400;
         }
 
         .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin: 25px 0;
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
             padding: 20px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -195,7 +187,7 @@
         }
 
         .stat-number {
-            font-size: 1.3em;
+            font-size: 1.5em;
             font-weight: 800;
             color: white;
             display: block;
@@ -203,20 +195,20 @@
         }
 
         .stat-label {
-            font-size: 0.7em;
+            font-size: 0.8em;
             color: rgba(255, 255, 255, 0.7);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .contact-info {
-            margin: 20px 0;
+            margin: 25px 0;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            padding: 12px 12px;
+            padding: 12px 15px;
             margin-bottom: 10px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
@@ -224,34 +216,31 @@
             text-decoration: none;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            min-height: 60px;
         }
 
         .contact-item:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: translateX(3px);
+            transform: translateX(5px);
         }
 
         .contact-icon {
-            width: 36px;
-            height: 36px;
-            min-width: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 10px;
             background: rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 12px;
-            font-size: 1em;
+            margin-right: 15px;
+            font-size: 1.1em;
         }
 
         .contact-text {
             flex: 1;
-            min-width: 0;
         }
 
         .contact-label {
-            font-size: 0.7em;
+            font-size: 0.75em;
             color: rgba(255, 255, 255, 0.7);
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -260,17 +249,16 @@
         }
 
         .contact-value {
-            font-size: 0.9em;
+            font-size: 0.95em;
             font-weight: 500;
             color: white;
-            word-break: break-word;
         }
 
         .action-buttons {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-            margin-top: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 25px;
         }
 
         .action-btn {
@@ -287,8 +275,6 @@
             gap: 8px;
             text-decoration: none;
             color: white;
-            min-height: 48px;
-            touch-action: manipulation;
         }
 
         .action-btn.primary {
@@ -296,9 +282,9 @@
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
         }
 
-        .action-btn.primary:active {
-            transform: translateY(1px);
-            box-shadow: 0 2px 10px rgba(245, 158, 11, 0.4);
+        .action-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
         }
 
         .action-btn.secondary {
@@ -306,28 +292,31 @@
             backdrop-filter: blur(10px);
         }
 
-        .action-btn.secondary:active {
+        .action-btn.secondary:hover {
             background: rgba(255, 255, 255, 0.25);
         }
 
         .save-contact-btn {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            grid-column: 1 / -1;
+        }
+
+        .save-contact-btn:hover {
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-top: 20px;
-            padding-top: 20px;
+            gap: 15px;
+            margin-top: 25px;
+            padding-top: 25px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .social-link {
-            width: 48px;
-            height: 48px;
-            min-width: 48px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.15);
             display: flex;
@@ -338,22 +327,21 @@
             font-size: 1.2em;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            touch-action: manipulation;
         }
 
-        .social-link:active {
+        .social-link:hover {
             background: rgba(255, 255, 255, 0.25);
-            transform: scale(0.95);
+            transform: translateY(-3px);
         }
 
         .toast {
             position: fixed;
-            bottom: 20px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
             background: white;
             color: #1e3a8a;
-            padding: 14px 20px;
+            padding: 16px 24px;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             font-weight: 600;
@@ -363,8 +351,6 @@
             gap: 10px;
             opacity: 0;
             transition: all 0.3s ease;
-            max-width: 90%;
-            font-size: 0.9em;
         }
 
         .toast.show {
@@ -377,171 +363,19 @@
             font-size: 1.2em;
         }
 
-        /* Tablet styles */
-        @media (min-width: 481px) {
+        @media (max-width: 480px) {
             .business-card {
-                padding: 35px 25px;
-                border-radius: 24px;
+                padding: 30px 20px;
             }
-
-            .profile-image {
-                width: 120px;
-                height: 120px;
-                font-size: 3em;
-            }
-
             .name {
-                font-size: 2em;
+                font-size: 1.6em;
             }
-
-            .title {
-                font-size: 1.1em;
-            }
-
-            .stat-number {
-                font-size: 1.5em;
-            }
-
-            .stat-label {
-                font-size: 0.8em;
-            }
-
-            .action-buttons {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-
-            .save-contact-btn {
-                grid-column: 1 / -1;
-            }
-        }
-
-        /* Small mobile optimization */
-        @media (max-width: 360px) {
-            body {
-                padding: 10px;
-            }
-
-            .business-card {
-                padding: 20px 15px;
-            }
-
-            .profile-image {
-                width: 80px;
-                height: 80px;
-                font-size: 2em;
-            }
-
-            .name {
-                font-size: 1.4em;
-            }
-
-            .title {
-                font-size: 0.9em;
-            }
-
-            .company {
-                font-size: 0.85em;
-            }
-
-            .stat-number {
-                font-size: 1.1em;
-            }
-
-            .stat-label {
-                font-size: 0.65em;
-            }
-
-            .contact-item {
-                padding: 10px;
-                min-height: 56px;
-            }
-
-            .contact-icon {
-                width: 32px;
-                height: 32px;
-                min-width: 32px;
-                font-size: 0.9em;
-            }
-
-            .contact-value {
-                font-size: 0.85em;
-            }
-
-            .action-btn {
-                padding: 12px 16px;
-                font-size: 0.9em;
-            }
-
-            .social-link {
-                width: 44px;
-                height: 44px;
-                min-width: 44px;
-                font-size: 1.1em;
-            }
-        }
-
-        /* Landscape mobile */
-        @media (max-height: 600px) and (orientation: landscape) {
-            body {
-                padding: 10px;
-            }
-
-            .business-card {
-                padding: 20px 15px;
-                max-height: 95vh;
-                overflow-y: auto;
-            }
-
-            .profile-image {
-                width: 70px;
-                height: 70px;
-                font-size: 1.8em;
-                margin-bottom: 10px;
-            }
-
-            .profile-section {
-                margin-bottom: 15px;
-            }
-
             .stats {
-                margin: 15px 0;
-                padding: 15px 0;
+                flex-direction: column;
+                gap: 15px;
             }
-
-            .contact-item {
-                min-height: 50px;
-                padding: 8px 10px;
-            }
-
-            .social-links {
-                margin-top: 15px;
-                padding-top: 15px;
-            }
-        }
-
-        /* Prevent zoom on input focus */
-        @media screen and (max-width: 768px) {
-            input, textarea, select, button {
-                font-size: 16px !important;
-            }
-        }
-
-        /* iOS safe area */
-        @supports (padding: max(0px)) {
-            body {
-                padding-left: max(15px, env(safe-area-inset-left));
-                padding-right: max(15px, env(safe-area-inset-right));
-                padding-bottom: max(15px, env(safe-area-inset-bottom));
-            }
-        }
-
-        /* Reduce animations on low-end devices */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+            .action-buttons {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -549,107 +383,105 @@
 <body>
     <div id="particles"></div>
 
-    <div class="card-container">
-        <div class="business-card">
-            <div class="card-bg"></div>
-            <div class="card-pattern"></div>
-            
-            <div class="card-content">
-                <div class="loading" id="loading">
-                    <i class="fas fa-spinner"></i>
-                    <p style="margin-top: 15px; font-size: 0.9em;">Loading your card...</p>
+    <div class="business-card">
+        <div class="card-bg"></div>
+        <div class="card-pattern"></div>
+        
+        <div class="card-content">
+            <div class="loading" id="loading">
+                <i class="fas fa-spinner"></i>
+                <p style="margin-top: 15px;">Loading your card...</p>
+            </div>
+
+            <div id="cardContent" style="display: none;">
+                <div class="profile-section">
+                    <div class="profile-image" id="profileImage">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h1 class="name" id="name"></h1>
+                    <p class="title" id="jobTitle"></p>
+                    <p class="company" id="company"></p>
                 </div>
 
-                <div id="cardContent" style="display: none;">
-                    <div class="profile-section">
-                        <div class="profile-image" id="profileImage">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <h1 class="name" id="name"></h1>
-                        <p class="title" id="jobTitle"></p>
-                        <p class="company" id="company"></p>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number" id="statExp"></span>
+                        <span class="stat-label">Years Exp</span>
                     </div>
-
-                    <div class="stats">
-                        <div class="stat">
-                            <span class="stat-number" id="statExp"></span>
-                            <span class="stat-label">Years Exp</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" id="statCampaigns"></span>
-                            <span class="stat-label">Campaigns</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" id="statRevenue"></span>
-                            <span class="stat-label">Revenue</span>
-                        </div>
+                    <div class="stat">
+                        <span class="stat-number" id="statCampaigns"></span>
+                        <span class="stat-label">Campaigns</span>
                     </div>
-
-                    <div class="contact-info">
-                        <a href="#" class="contact-item" id="phoneLink">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <span class="contact-label">Phone</span>
-                                <span class="contact-value" id="phoneText"></span>
-                            </div>
-                        </a>
-
-                        <a href="#" class="contact-item" id="emailLink">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <span class="contact-label">Email</span>
-                                <span class="contact-value" id="emailText"></span>
-                            </div>
-                        </a>
-
-                        <a href="#" class="contact-item" onclick="copyLocation(event)">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <span class="contact-label">Location</span>
-                                <span class="contact-value" id="locationText"></span>
-                            </div>
-                        </a>
+                    <div class="stat">
+                        <span class="stat-number" id="statRevenue"></span>
+                        <span class="stat-label">Revenue</span>
                     </div>
+                </div>
 
-                    <div class="action-buttons">
-                        <button class="action-btn save-contact-btn" onclick="saveContact()">
-                            <i class="fas fa-download"></i>
-                            Save Contact
-                        </button>
-                        <a href="#" class="action-btn primary" id="linkedinBtn">
-                            <i class="fab fa-linkedin"></i>
-                            LinkedIn
-                        </a>
-                        <button class="action-btn secondary" onclick="shareCard()">
-                            <i class="fas fa-share-alt"></i>
-                            Share
-                        </button>
-                        <a href="#" class="action-btn secondary" id="websiteBtn">
-                            <i class="fas fa-globe"></i>
-                            Portfolio
-                        </a>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="#" class="social-link" id="socialLinkedin" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-link" id="socialEmail" title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="#" class="social-link" id="socialPhone" title="Phone">
+                <div class="contact-info">
+                    <a href="#" class="contact-item" id="phoneLink">
+                        <div class="contact-icon">
                             <i class="fas fa-phone"></i>
-                        </a>
-                        <a href="#" class="social-link" id="socialWhatsapp" title="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
+                        </div>
+                        <div class="contact-text">
+                            <span class="contact-label">Phone</span>
+                            <span class="contact-value" id="phoneText"></span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="contact-item" id="emailLink">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value" id="emailText"></span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="contact-item" onclick="copyLocation(event)">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <span class="contact-label">Location</span>
+                            <span class="contact-value" id="locationText"></span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn save-contact-btn" onclick="saveContact()">
+                        <i class="fas fa-download"></i>
+                        Save Contact
+                    </button>
+                    <a href="#" class="action-btn primary" id="linkedinBtn">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <button class="action-btn secondary" onclick="shareCard()">
+                        <i class="fas fa-share-alt"></i>
+                        Share
+                    </button>
+                    <a href="#" class="action-btn secondary" id="websiteBtn">
+                        <i class="fas fa-globe"></i>
+                        Portfolio
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-link" id="socialLinkedin" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" id="socialEmail" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="#" class="social-link" id="socialPhone" title="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="#" class="social-link" id="socialWhatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -661,19 +493,19 @@
     </div>
 
     <script>
+        // Storage for extracted data
         let cardData = {};
 
+        // Create background particles
         function createParticles() {
             const container = document.getElementById('particles');
             const colors = ['rgba(255,255,255,0.1)', 'rgba(245,158,11,0.2)', 'rgba(239,68,68,0.2)'];
-            const particleCount = window.innerWidth < 768 ? 8 : 15;
             
-            for (let i = 0; i < particleCount; i++) {
+            for (let i = 0; i < 15; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                const size = Math.random() * 80 + 40;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
+                particle.style.width = Math.random() * 100 + 50 + 'px';
+                particle.style.height = particle.style.width;
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + '%';
                 particle.style.background = colors[Math.floor(Math.random() * colors.length)];
@@ -683,6 +515,7 @@
 
         createParticles();
 
+        // Fetch and parse main index.html
         async function fetchMainPageData() {
             try {
                 const response = await fetch('../index.html');
@@ -690,48 +523,61 @@
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
 
+                // Extract data from main page
                 cardData = {
+                    // Name from hero or title
                     name: doc.querySelector('.hero h1')?.textContent?.trim() || 
                           doc.querySelector('h1')?.textContent?.trim() || 
                           'Rishi Raje',
                     
+                    // Job title
                     title: doc.querySelector('.hero h3')?.textContent?.replace('I am', '')?.trim() ||
                            doc.querySelector('.hero-content p')?.textContent?.split('.')[0] ||
                            'Sales & Marketing Manager',
                     
+                    // Company
                     company: 'WAL Developments',
                     
+                    // Email (find email link or text)
                     email: doc.querySelector('a[href^="mailto:"]')?.href?.replace('mailto:', '') || 
                            doc.querySelector('a[href^="mailto:"]')?.textContent?.trim() ||
                            'rishi_raje07@yahoo.co.uk',
                     
+                    // Phone (find phone link or text)
                     phone: doc.querySelector('a[href^="tel:"]')?.href?.replace('tel:', '') ||
                            doc.querySelector('.contact-details p')?.textContent?.match(/\+[\d-]+/)?.[0] ||
                            '+91-7388909494',
                     
+                    // Location
                     location: doc.querySelector('.contact-details h3:contains("Address")')?.nextElementSibling?.textContent ||
                              'Gurgaon, India',
                     
+                    // LinkedIn
                     linkedin: doc.querySelector('a[href*="linkedin"]')?.href || 
                              'https://www.linkedin.com/in/rishiraje',
                     
+                    // Website
                     website: window.location.origin,
                     
+                    // Stats (extract from stat cards)
                     stats: {
                         experience: doc.querySelector('.stat-card h2')?.textContent?.trim() || '12+',
                         campaigns: doc.querySelectorAll('.stat-card h2')?.[1]?.textContent?.trim() || '250+',
                         revenue: doc.querySelectorAll('.stat-card h2')?.[2]?.textContent?.trim() || '$370M+'
                     },
 
+                    // Profile image
                     profileImage: doc.querySelector('.profile-img img')?.src || ''
                 };
 
+                // Generate WhatsApp link from phone
                 const phoneNumber = cardData.phone.replace(/[^0-9]/g, '');
                 cardData.whatsapp = `https://wa.me/${phoneNumber}`;
 
                 return cardData;
             } catch (error) {
                 console.error('Error fetching main page:', error);
+                // Return fallback data
                 return {
                     name: 'Rishi Raje',
                     title: 'Sales & Marketing Manager',
@@ -752,42 +598,52 @@
             }
         }
 
+        // Populate card with data
         function populateCard(data) {
+            // Profile
             document.getElementById('name').textContent = data.name;
             document.getElementById('jobTitle').textContent = data.title;
             document.getElementById('company').textContent = data.company;
 
+            // Stats
             document.getElementById('statExp').textContent = data.stats.experience;
             document.getElementById('statCampaigns').textContent = data.stats.campaigns;
             document.getElementById('statRevenue').textContent = data.stats.revenue;
 
+            // Contact info
             document.getElementById('phoneText').textContent = data.phone;
             document.getElementById('emailText').textContent = data.email;
             document.getElementById('locationText').textContent = data.location;
 
+            // Links
             document.getElementById('phoneLink').href = `tel:${data.phone}`;
             document.getElementById('emailLink').href = `mailto:${data.email}`;
             document.getElementById('linkedinBtn').href = data.linkedin;
             document.getElementById('websiteBtn').href = data.website;
 
+            // Social links
             document.getElementById('socialLinkedin').href = data.linkedin;
             document.getElementById('socialEmail').href = `mailto:${data.email}`;
             document.getElementById('socialPhone').href = `tel:${data.phone}`;
             document.getElementById('socialWhatsapp').href = data.whatsapp;
 
+            // Profile image
             if (data.profileImage) {
                 document.getElementById('profileImage').innerHTML = `<img src="${data.profileImage}" alt="${data.name}">`;
             }
 
+            // Show card, hide loading
             document.getElementById('loading').style.display = 'none';
             document.getElementById('cardContent').style.display = 'block';
         }
 
+        // Initialize
         async function init() {
             const data = await fetchMainPageData();
             populateCard(data);
         }
 
+        // Show toast
         function showToast(message) {
             const toast = document.getElementById('toast');
             document.getElementById('toastMessage').textContent = message;
@@ -795,6 +651,7 @@
             setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
+        // Save contact as vCard
         function saveContact() {
             const vCard = `BEGIN:VCARD
 VERSION:3.0
@@ -819,6 +676,7 @@ END:VCARD`;
             showToast('Contact card downloaded!');
         }
 
+        // Share card
         async function shareCard() {
             const shareData = {
                 title: `${cardData.name} - Digital Business Card`,
@@ -841,15 +699,15 @@ END:VCARD`;
             }
         }
 
+        // Copy location
         function copyLocation(e) {
             e.preventDefault();
             navigator.clipboard.writeText(cardData.location).then(() => {
-                showToast('Location copied!');
-            }).catch(() => {
-                showToast('Could not copy location');
+                showToast('Location copied to clipboard!');
             });
         }
 
+        // Start loading data
         init();
     </script>
 </body>
