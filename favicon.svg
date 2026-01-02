@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6b4423;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d97236;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffd89b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="url(#bgGrad)"/>
+  
+  <!-- Decorative border -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#ffd89b" stroke-width="1" opacity="0.3"/>
+  
+  <!-- RR Text -->
+  <text x="32" y="42" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="url(#textGrad)" text-anchor="middle" letter-spacing="-2">RR</text>
+  
+  <!-- Accent dot -->
+  <circle cx="32" cy="52" r="2" fill="#29abe2"/>
+</svg>
