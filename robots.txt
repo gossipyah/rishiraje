@@ -1,0 +1,25 @@
+# robots.txt for rishiraje.in
+# https://www.rishiraje.in/robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas if they exist
+# Disallow: /admin/
+# Disallow: /private/
+
+# Disallow duplicate content from URL parameters
+Disallow: /*?
+Disallow: /*?*
+
+# Allow CSS, JS and images for better crawling and rendering
+Allow: /styles.css
+Allow: /styles_min.css
+Allow: /script.js
+Allow: /script_min.js
+Allow: /*.css
+Allow: /*.js
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://www.rishiraje.in/sitemap.xml
